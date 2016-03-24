@@ -1,50 +1,8 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-advanced-reader.ss" "lang")((modname |8 part 3 (some "bells and whistles")|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t write repeating-decimal #f #t none #f ())))
-;; CMPU101 Fall 2014
-;; Assignment 8, part 3
-;; Posted: 11/24/14
-;; Due: 12/3/14 at midnight   
-
-;; WRITE YOUR FIRST AND LAST NAMES IN PLACE OF QUOTED SYMBOLS ON THE NEXT LINE:
-(printf "\n\nAssignment 8: ~a ~a\n\n" 'Samana 'Shrestha) 
-
+#reader(lib "htdp-advanced-reader.ss" "lang")((modname |SnakeGame|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t write repeating-decimal #f #t none #f ())))
 (require 2htdp/image)
 (require 2htdp/universe)
-
-
-
-;This snake game starts with a snake made up of 3 circles which are defined by a
-;struct segs. The initial scene also has a circle of a different color but the 
-;same size as the segments of the snake. The food is defined by struct food.
-;Both the food and the snake segments structs contain x, y, dx and dy components
-;which give the x coordinate, y coordinate, change in x coordinate (for moving)
-;and change in y coordinate respectively. Both the structs are defined inside a
-;bigger struct called sg. Using the dx and dy, the snake moves around the 
-;screen. The illusion of movement is achieved by adding a new circle at the head
-;of the snake and removing the last circle at the tail every time the clock that
-;the code is using ticks. The snake also moves in different directions depending
-;on which key the user presses. This is done by adding a new head seg with dx
-;and dy modified to make the circle be added in the new direction. After the 
-;addition of the head, the addition of new head and removal of tail segments
-;goes on to make it look like the snake is now moving in a new direction. When
-;the snake comes across a food segment, it eats it and grows longer. This is 
-;done by adding the food segment into the list of circles that make up the snake
-;to make it look like it ate it and grew longer. The food segment becomes the 
-;same color as the snake segments when attached. As soon as the food is eaten, 
-;a new food appears in a random location. The snake dies if it hits a wall or
-;eats itself. For this, a function checks if the x and y coordinates of the head
-;of the snake are in the same place as any of the 4 extremes of the x and y axes
-;that make up the scene. A separate function checks if the snake's head is in
-;the same coordinates as any of its other segments. If either of these cases is
-;met, the game is terminated and the final scene is an image telling the user
-;they have lost. The scene also has a number at the bottom right corner that
-;shows how many segments are in the snake at any given time. This is done by
-;printing the length of the list containing segments of the snake
-
-
-
-
 ;                                       ;                   ;            
 ;                                      ;;                  ;;            
 ;                                      ;;                  ;;            
